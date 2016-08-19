@@ -35,6 +35,7 @@ void menu()
     while (flag) {
         int variant;
         std::cin >> variant;
+
         while (std::cin.fail()) {
             std::cin.clear();
             char temp;
@@ -80,11 +81,13 @@ std::pair<int, int> readFieldSize()
 
     while (flag) {
         std::cin >> hight;
+
         if (std::cin.fail()){
             std::cin.clear();
             char temp;
             std::cin >> temp;
         }
+
         if (hight >= 5 && hight <= 26) {
             flag = false;
         }
@@ -99,11 +102,13 @@ std::pair<int, int> readFieldSize()
 
     while (flag) {
         std::cin >> wight;
+
         if (std::cin.fail()){
             std::cin.clear();
             char temp;
             std::cin >> temp;
         }
+
         if (wight >= 5 && wight <= 26){
             flag = false;
         }
@@ -120,9 +125,11 @@ std::pair<int, int> readFieldSize()
 }
 
 
-void startGame(std::pair<int, int> sizeField) {
+void startGame(std::pair<int, int> sizeField)
+{
     static int quantityLivingCell = 0;
     bool flag = true;
+
     Fields field = initialization(sizeField);
     draw(field.fieldOfAction, sizeField);
 
@@ -145,10 +152,11 @@ void gameRestart()
     while(flag) {
         startGame(readFieldSize());
         std::cout << "1 - Restart\n2 - Exit\nYour choice: ";
+
         while (flag) {
             int variant;
-
             std::cin >> variant;
+
             if (std::cin.fail()) {
                 std::cin.clear();
                 char temp;
@@ -194,8 +202,8 @@ void readUserLivingCell(Fields& field, std::pair<int, int> sizeField, int& quant
 
             while (tempFlag){
                 int variant;
-
                 std::cin >> variant;
+
                 if (std::cin.fail()) {
                     std::cin.clear();
                     char temp;

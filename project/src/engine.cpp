@@ -114,6 +114,7 @@ bool checkFieldsMatch(Fields field, std::pair<int, int> sizeField)
                 return 1;
         }
     }
+
     return 0;
 }
 
