@@ -14,7 +14,7 @@ int addressCellY[] = {0, 0, 1, 1, 1, -1, -1, -1};
 
 Fields initialization(std::pair<int, int> sizeField)
 {
-    char** fieldOfAction = new char* [sizeField.first];
+    char **fieldOfAction = new char* [sizeField.first];
 
     for (int i = 0; i < sizeField.first; i++){
         fieldOfAction[i] = new char [sizeField.second];
@@ -26,7 +26,7 @@ Fields initialization(std::pair<int, int> sizeField)
         fieldOfAction[0][i] = fieldOfAction[0][i - 1] + 1;            //инициализация букв поля
     }
 
-    for (int i = 3; i < sizeField.first-1; i++) {
+    for (int i = 3; i < sizeField.first - 1; i++) {
         fieldOfAction[i][0] = fieldOfAction[i - 1][0] + 1;            //инициализация букв поля
     }
 
@@ -49,7 +49,7 @@ Fields initialization(std::pair<int, int> sizeField)
         }
     }
 
-    char** tempField = new char* [sizeField.first - 3];
+    char **tempField = new char* [sizeField.first - 3];
 
     for (int i = 0; i < sizeField.first - 3; i++){
         tempField[i] = new char [sizeField.second - 3];
