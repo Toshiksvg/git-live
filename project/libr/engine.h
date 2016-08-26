@@ -11,12 +11,12 @@
 
 struct Fields
 {
-    char** fieldOfAction;
-    char** tempField;
+    char **fieldOfAction;
+    char **tempField;
 };
 
 
-Fields initialization(std::pair<int, int> sizeField);
-void initLivingCell(Fields field, int addressHight, int addressWight);
-bool gamingProcess(Fields field, std::pair<int, int> sizeField, int& quantityLivingCell);
-void destroyAllFields(Fields field, std::pair<int, int> sizeField);
+Fields initialization   (std::pair<int, int> sizeField);
+void initLivingCell     (Fields field, int addressHight, int addressWight);
+bool gamingProcess      (Fields field, std::pair<int, int> sizeField, int &quantityLivingCell);
+void destroyAllFields   (Fields field, std::pair<int, int> sizeField);
