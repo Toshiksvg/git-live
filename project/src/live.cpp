@@ -9,15 +9,14 @@
 
 enum ErrorVariant{ERROR_MENU, ERROR_SIZE_FIELD};
 
-
 //int readItemsMenu();
-void menu();
-void error(ErrorVariant);
-std::pair<int, int> readFieldSize();
-void startGame(std::pair<int, int> sizeField);
-void readUserLivingCell(Fields& field, std::pair<int, int> sizeField, int& quantityLivingCell);
-void gameOver(Fields& field, std::pair<int, int> sizeField);
-void gameRestart();
+void menu                           ();
+void error                          (ErrorVariant);
+std::pair<int, int> readFieldSize   ();
+void startGame                      (std::pair<int, int> sizeField);
+void readUserLivingCell             (Fields& field, std::pair<int, int> sizeField, int& quantityLivingCell);
+void gameOver                       (Fields& field, std::pair<int, int> sizeField);
+void gameRestart                    ();
 
 void Live()
 {
@@ -36,7 +35,7 @@ void menu()
         int variant;
         std::cin >> variant;
 
-        while (std::cin.fail()) {
+        while (std::cin.fail() ) {
             std::cin.clear();
             char temp;
             std::cin >> temp;
@@ -74,7 +73,8 @@ void error(ErrorVariant option)
 std::pair<int, int> readFieldSize()
 {
     clearWindow();
-    int hight, wight;
+    int hight;
+    int wight;
     bool flag = true;
 
     std::cout << "Write hight and wight of field\nHight (min - 5, max - 26): ";
@@ -82,7 +82,7 @@ std::pair<int, int> readFieldSize()
     while (flag) {
         std::cin >> hight;
 
-        if (std::cin.fail()){
+        if (std::cin.fail() ){
             std::cin.clear();
             char temp;
             std::cin >> temp;
@@ -103,7 +103,7 @@ std::pair<int, int> readFieldSize()
     while (flag) {
         std::cin >> wight;
 
-        if (std::cin.fail()){
+        if (std::cin.fail() ){
             std::cin.clear();
             char temp;
             std::cin >> temp;
@@ -128,9 +128,10 @@ std::pair<int, int> readFieldSize()
 void startGame(std::pair<int, int> sizeField)
 {
     static int quantityLivingCell = 0;
-    bool flag = true;
+    bool flag                     = true;
+    Fields field                  = initialization(sizeField);
 
-    Fields field = initialization(sizeField);
+
     draw(field.fieldOfAction, sizeField);
 
     readUserLivingCell(field, sizeField, quantityLivingCell);
@@ -149,15 +150,16 @@ void startGame(std::pair<int, int> sizeField)
 void gameRestart()
 {
     bool flag = true;
+
     while(flag) {
-        startGame(readFieldSize());
+        startGame(readFieldSize() );
         std::cout << "1 - Restart\n2 - Exit\nYour choice: ";
 
         while (flag) {
             int variant;
             std::cin >> variant;
 
-            if (std::cin.fail()) {
+            if (std::cin.fail() ) {
                 std::cin.clear();
                 char temp;
                 std::cin >> temp;
@@ -178,20 +180,21 @@ void gameRestart()
     }
 }
 
-void readUserLivingCell(Fields& field, std::pair<int, int> sizeField, int& quantityLivingCell)
+void readUserLivingCell(Fields& field, std::pair<int, int> sizeField, int &quantityLivingCell)
 {
     std::cout << "Write address of living cell. For Example: AB(A - hight, B - wight)\nYour address: ";
 
-    bool flag = true;
-    char addressHight, addressWight;
+    char addressHight = ' ';
+    char addressWight = ' ';
+    bool flag         = true;
 
     while (flag){
         std::cin >> addressHight >> addressWight;
 
-        if ( (addressHight >= 'A' && addressHight <= ('A'+sizeField.first-4) ) &&
-                (addressWight >= 'A' && addressWight <= ('A'+sizeField.second-4) ) ){
+        if ((addressHight >= 'A' && addressHight <= ('A' + sizeField.first - 4) ) &&
+                (addressWight >= 'A' && addressWight <= ('A' + sizeField.second - 4) ) ){
 
-            initLivingCell(field, int(addressHight-'A'+2), int(addressWight-'A'+2));  //инициализируем клетку
+            initLivingCell(field, int(addressHight - 'A' + 2), int(addressWight - 'A' + 2) );  //инициализируем клетку
 
             draw(field.fieldOfAction, sizeField); //рисуем поле
 
@@ -204,7 +207,7 @@ void readUserLivingCell(Fields& field, std::pair<int, int> sizeField, int& quant
                 int variant;
                 std::cin >> variant;
 
-                if (std::cin.fail()) {
+                if (std::cin.fail() ) {
                     std::cin.clear();
                     char temp;
                     std::cin >> temp;
@@ -217,7 +220,7 @@ void readUserLivingCell(Fields& field, std::pair<int, int> sizeField, int& quant
                         break;
                     case 2:
                         tempFlag = false;
-                        flag = false;
+                        flag     = false;
                         break;
                     default:
                         error(ERROR_MENU);

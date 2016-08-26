@@ -7,4 +7,4 @@
 
 #endif //TEST1_INTERACTION_H
 
-void Live();
+void Live   ();

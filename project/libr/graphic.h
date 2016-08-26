@@ -11,5 +11,5 @@
 
 
 
-void draw(char** fieldOfAction, std::pair<int, int> sizeField, const bool flag = true);
-void clearWindow();
+void draw          (char **fieldOfAction, std::pair<int, int> sizeField, const bool flag = true);
+void clearWindow   ();
